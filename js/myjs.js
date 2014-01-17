@@ -263,19 +263,20 @@ $(document).ready(function () {
     }
     //strand selection
     $("#subdd").change(function () {
+        str = $("#subdd option:selected").text();
         popout()       
     });
     //popout
     function popout() {
-        str = $("#subdd option:selected").text();
+        
         //gr = gradedd.options[gradedd.selectedIndex].value;
         xml = loadXMLDoc("resources/core/" + areasel + "/" + str + "/" + gr + ".xml");
         path = "/LearningStandards/LearningStandardItem/StatementCodes/StatementCode"
         pathout = "/LearningStandards/LearningStandardItem/Statements/Statement"
-        var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
         alert()
+        var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
         var nodesout = xml.evaluate(pathout, xml, null, XPathResult.ANY_TYPE, null);
-
+        alert()
         var result = nodes.iterateNext();
         var resultout = nodesout.iterateNext();
         alert()
