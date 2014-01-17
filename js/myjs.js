@@ -281,6 +281,7 @@ $(document).ready(function () {
         while (result) {
             if (result.childNodes.length > 0) {
                 var ind = result.childNodes[0].nodeValue;
+                alert(ind)
                 var newind = ind.replace(/\./g, ' ')
             } else {
                 var newind = "n/a"
