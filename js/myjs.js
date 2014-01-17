@@ -270,6 +270,7 @@ $(document).ready(function () {
         str = $("#subdd option:selected").text();
         //gr = gradedd.options[gradedd.selectedIndex].value;
         xml = loadXMLDoc("resources/core/" + areasel + "/" + str + "/" + gr + ".xml");
+        alert("resources/core/" + areasel + "/" + str + "/" + gr + ".xml")
         path = "/LearningStandards/LearningStandardItem/StatementCodes/StatementCode"
         pathout = "/LearningStandards/LearningStandardItem/Statements/Statement"
         var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
@@ -281,7 +282,6 @@ $(document).ready(function () {
         while (result) {
             if (result.childNodes.length > 0) {
                 var ind = result.childNodes[0].nodeValue;
-                alert(ind)
                 var newind = ind.replace(/\./g, ' ')
             } else {
                 var newind = "n/a"
