@@ -178,13 +178,12 @@ $(document).ready(function () {
             $("#strand").hide();
             return;
         }
-        if ($(this).val() == "hs") {
+        if ($(this).val() == "HS") {
+            gr = $(this).val()
             $("#grades").hide();
             $("#grade1").hide();
             $("#grade2").hide();
             $("#strand").show();
-            gr = "HS"
-            areasel = $("#areasel option:selected").text();
             popsub()
             $("#subdd").selectmenu("refresh", true);
             return;
@@ -194,14 +193,13 @@ $(document).ready(function () {
             $("#grade1").hide();
             $("#grade2").show();
             $("#strand").hide();
-            areasel = $("#areasel option:selected").text();
             return;
         } else {
             $("#grades").show();
             $("#grade2").hide();
             $("#grade1").show();
             $("#strand").hide();
-            areasel = $("#areasel option:selected").text();
+            
         }       
     });
     //populate subjects
@@ -263,31 +261,61 @@ $(document).ready(function () {
     }
     //strand selection
     $("#subdd").change(function () {
-        str = $("#subdd option:selected").text();
-        popout()       
+        try {
+            str = $("#subdd option:selected").text();
+            xml = loadXMLDoc("resources/core/" + areasel + "/" + str + "/" + gr + ".xml");
+            path = "/LearningStandards/LearningStandardItem/StatementCodes/StatementCode"
+            pathout = "/LearningStandards/LearningStandardItem/Statements/Statement"
+            var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
+            var nodesout = xml.evaluate(pathout, xml, null, XPathResult.ANY_TYPE, null);
+            var result = nodes.iterateNext();
+            var resultout = nodesout.iterateNext();
+            var txt = txt = "<table class='rubrictable'><tr><th>add to rubric</th><th>Code</th><th>Grade " + gr + " " + str + " Standards</th></tr>";
+
+            while (result) {
+                if (result.childNodes.length > 0) {
+                    var ind = result.childNodes[0].nodeValue;
+                    var newind = ind.replace(/\./g, ' ')
+                } else {
+                    var newind = "n/a"
+                }
+                if (resultout.childNodes.length > 0) {
+                    var over = resultout.childNodes[0].nodeValue;
+
+                } else {
+                    var over = "n/a"
+                }
+                txt = txt + "<tr><td><form><input type='checkbox'></input></td><td>" + newind + "</td><td>" + over + "</td></tr>"
+                result = nodes.iterateNext();
+                resultout = nodesout.iterateNext();
+            }
+            txt = txt + "<tr><td></td><td>Adapted from:</td><td>Common Core State Standards XML files @ www.corestandards.org</td></tr></table></table>"
+            document.getElementById('outtable').innerHTML = txt;
+            $("#outtable").show();
+            $("#addout").show();
+            $("#generic").hide();
+        }
+        catch (err) {
+           alert(err.message)
+        }
     });
     //popout
-    function popout() {
+    function popout() {    
         
-        //gr = gradedd.options[gradedd.selectedIndex].value;
         xml = loadXMLDoc("resources/core/" + areasel + "/" + str + "/" + gr + ".xml");
         path = "/LearningStandards/LearningStandardItem/StatementCodes/StatementCode"
         pathout = "/LearningStandards/LearningStandardItem/Statements/Statement"
-        alert()
         var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
         var nodesout = xml.evaluate(pathout, xml, null, XPathResult.ANY_TYPE, null);
-        alert()
         var result = nodes.iterateNext();
         var resultout = nodesout.iterateNext();
-        alert()
         var txt = txt = "<table class='rubrictable'><tr><th>add to rubric</th><th>Code</th><th>Grade " + gr + " " + str + " Standards</th></tr>";
 
         while (result) {
-            alert("while")
+            
             if (result.childNodes.length > 0) {
                 var ind = result.childNodes[0].nodeValue;
                 var newind = ind.replace(/\./g, ' ')
-                alert()
             } else {
                 var newind = "n/a"
             }
@@ -296,13 +324,10 @@ $(document).ready(function () {
                 
             } else {
                 var over = "n/a"
-            }
-
-            
+            }         
             txt = txt + "<tr><td><form><input type='checkbox'></input></td><td>" + newind + "</td><td>" + over + "</td></tr>"
             result = nodes.iterateNext();
-            resultout = nodesout.iterateNext();
-            
+            resultout = nodesout.iterateNext();         
         }
 
         txt = txt + "<tr><td></td><td>Adapted from:</td><td>Common Core State Standards XML files @ www.corestandards.org</td></tr></table></table>"
@@ -312,10 +337,7 @@ $(document).ready(function () {
         $("#generic").hide();
     }
     //populate outcomes
-    $("#subdd").change(function () {
-        popout();
-    });
-      
+   
  // creates rubric
     $('#addoutBtn').on('click', function () {
         if ($('input:checked').length < 1) {
