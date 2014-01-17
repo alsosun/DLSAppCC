@@ -244,7 +244,6 @@ $(document).ready(function () {
             while (result) {
 
                 var sub = result.childNodes[0].nodeValue
-                alert(sub)
                 dropdown[dropdown.length] = new Option(sub, sub);
                 result = nodes.iterateNext();
             }
@@ -252,7 +251,6 @@ $(document).ready(function () {
         $("#strand").show();
     }
     function loadXMLDoc(dname) {
-        alert(areasel)
         if (window.XMLHttpRequest) {
             xhttp = new XMLHttpRequest();
         }
@@ -261,7 +259,6 @@ $(document).ready(function () {
         }
         xhttp.open("GET", dname, false);
         xhttp.send("");
-        alert("loaded")
         return xhttp.responseXML;
     }
     //strand selection
@@ -270,7 +267,7 @@ $(document).ready(function () {
     });
     //popout
     function popout() {
-        str = $("#subdd option:selected").val();
+        str = $("#subdd option:selected").text();
         //gr = gradedd.options[gradedd.selectedIndex].value;
         xml = loadXMLDoc("resources/core/" + areasel + "/" + str + "/" + gr + ".xml");
         path = "/LearningStandards/LearningStandardItem/StatementCodes/StatementCode"
