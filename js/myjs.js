@@ -4,6 +4,7 @@ $(document).ready(function () {
     var org;
     var gr;
     var areasel;
+    var str;
     //news feed
     $('#divRss').FeedEk({
         FeedUrl: 'http://dailyrubic.blogspot.com/feeds/posts/default',
@@ -264,11 +265,9 @@ $(document).ready(function () {
     });
     //popout
     function popout() {
-        var str = $("#subdd option:selected").text();
+        str = $("#subdd option:selected").val();
         //gr = gradedd.options[gradedd.selectedIndex].value;
-
         xml = loadXMLDoc("resources/core/" + areasel + "/" + str + "/" + gr + ".xml");
-
         path = "/LearningStandards/LearningStandardItem/StatementCodes/StatementCode"
         pathout = "/LearningStandards/LearningStandardItem/Statements/Statement"
         var nodes = xml.evaluate(path, xml, null, XPathResult.ANY_TYPE, null);
@@ -278,13 +277,24 @@ $(document).ready(function () {
         var txt = txt = "<table class='rubrictable'><tr><th>add to rubric</th><th>Code</th><th>Grade " + gr + " " + str + " Standards</th></tr>";
 
         while (result) {
-     
-            var ind = result.childNodes[0].nodeValue;
-            var newind = ind.replace(/\./g, ' ')
-            var over = resultout.childNodes[0].nodeValue;
+            if (result.childNodes.length > 0) {
+                var ind = result.childNodes[0].nodeValue;
+                var newind = ind.replace(/\./g, ' ')
+            } else {
+                var newind = "n/a"
+            }
+            if (resultout.childNodes.length > 0) {
+                var over = resultout.childNodes[0].nodeValue;
+                
+            } else {
+                var over = "n/a"
+            }
+
+            
             txt = txt + "<tr><td><form><input type='checkbox'></input></td><td>" + newind + "</td><td>" + over + "</td></tr>"
             result = nodes.iterateNext();
             resultout = nodesout.iterateNext();
+            
         }
 
         txt = txt + "<tr><td></td><td>Adapted from:</td><td>Common Core State Standards XML files @ www.corestandards.org</td></tr></table></table>"
@@ -354,6 +364,10 @@ $(document).ready(function () {
         $("#grade_con").show();
         $("#next").hide();
         $("#generic").hide();
+        $("#grades").hide();
+        $("#grade1").hide();
+        $("#grade2").hide();
+        $("#strand").hide();
     });
     //add more to rubric
     $("#addmoreBtn").on("click", function () {
@@ -361,6 +375,10 @@ $(document).ready(function () {
         $("#grade_con").show();
         $("#next").hide();
         $("#generic").hide();
+        $("#grades").hide();
+        $("#grade1").hide();
+        $("#grade2").hide();
+        $("#strand").hide();
     });
     //save rubric
     $("#saveBtn").on("click", function () {

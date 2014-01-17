@@ -247,10 +247,10 @@
       <description>Standard</description>
     </StandardHierarchyLevel>
     <StatementCodes>
-      <StatementCode></StatementCode>
+      <StatementCode>null</StatementCode>
     </StatementCodes>
     <Statements>
-      <Statement>(L.K.3 begins in grade 2)</Statement>
+      <Statement>L.K.3 begins in grade 2</Statement>
     </Statements>
     <GradeLevels>
       <GradeLevel>K</GradeLevel>
