@@ -1,6 +1,6 @@
 <curriculum>
 	<grade>
-		<grade_text>HS</grade_text>
+		<grade_text>hs</grade_text>
     <subjects id="HS">Interpreting Data</subjects>
     <subjects id="HS">Making Inferences</subjects>
     <subjects id="HS">Rules of Probability</subjects>

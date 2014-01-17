@@ -223,7 +223,9 @@ $(document).ready(function () {
         //dropdown.innerHTML = "";
         dropdown[dropdown.length] = new Option("select subject", "select subject");
         xml = loadXMLDoc("resources/core/" + areasel + "/corecur.xml");
+        alert(gr)
         path = "/curriculum/grade/subjects[@id='" + gr + "']"
+        
         // code for IE
         if (window.ActiveXObject) {
             var nodes = xml.selectNodes(path);
@@ -242,6 +244,7 @@ $(document).ready(function () {
             while (result) {
 
                 var sub = result.childNodes[0].nodeValue
+                alert(sub)
                 dropdown[dropdown.length] = new Option(sub, sub);
                 result = nodes.iterateNext();
             }
@@ -340,7 +343,7 @@ $(document).ready(function () {
     //adds custom outcome
     $("#addcustoutBtn").on("click", function () {
         var i = $("#rubric table").size() + 1;
-        var code = "ctm " + i
+        var code = "custom " + i
         var out = $("#outcome").val();
         var txt = "<table id='band" + i + "' class='rubrictable' style='width:100%'><tr><th style='width:5%'>ID</th><th style='width:45%'>Outcome</th>\
                         <th style='width:10%'>Level 1</th><th style='width:10%'>Level 2</th><th style='width:20%'>Level 3</th>\
