@@ -223,7 +223,7 @@ $(document).ready(function () {
         //dropdown.innerHTML = "";
         dropdown[dropdown.length] = new Option("select subject", "select subject");
         xml = loadXMLDoc("resources/core/" + areasel + "/corecur.xml");
-        alert(gr)
+        
         path = "/curriculum/grade/subjects[@id='" + gr + "']"
         
         // code for IE
@@ -252,6 +252,7 @@ $(document).ready(function () {
         $("#strand").show();
     }
     function loadXMLDoc(dname) {
+        alert(areasel)
         if (window.XMLHttpRequest) {
             xhttp = new XMLHttpRequest();
         }
@@ -260,6 +261,7 @@ $(document).ready(function () {
         }
         xhttp.open("GET", dname, false);
         xhttp.send("");
+        alert("loaded")
         return xhttp.responseXML;
     }
     //strand selection
