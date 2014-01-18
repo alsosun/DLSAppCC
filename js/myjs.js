@@ -186,6 +186,7 @@ $(document).ready(function () {
             $("#strand").show();
             popsub()
             $("#subdd").selectmenu("refresh", true);
+            gr = "hs"
             return;
         }
         if ($(this).val() == "Mathematics") {
