@@ -220,10 +220,20 @@
                     <div id="rubric"></div>
                     <div id="next" hidden="hidden">
                         <p>Click on any box in the rubric to edit its contents.</p>
-                        <a href="#" id="addmoreBtn" data-role="button" data-icon="plus" data-theme="c" data-inline="true">Add more outcomes</a>
+                        <a href="#" id="addmoreBtn" data-role="button" data-icon="plus" data-theme="c" data-inline="true">More outcomes</a>
                         <a href="#" id="clearBtn" data-role="button" data-icon="refresh" data-theme="c" data-inline="true">Start Over</a>
                         <a href="#" id="saveBtn" data-role="button" data-icon="check" data-theme="c" data-inline="true">Done</a>
+                        <a href="#" id="openexport" data-role="button" data-icon="check" data-theme="c" data-inline="true">Export</a>
                     </div>
+                <div id="exportcon" hidden="hidden">
+                    <form action="http://www.digitallearnersolutions.com/dailyrubric/export.php" method="post" id="rubricform">
+                             <label for="email">enter your email</label>
+                             <input type="text" name="email" id="email"/>
+                             <div hidden="hidden"><textarea name="rubricname" id="rubricname" ></textarea></div>
+                             <div hidden="hidden"><textarea name="hiddenrubric" id="hiddenrubric" ></textarea></div>
+                             <div><button id="exportBtn">export</button></div>
+                    </form>
+                </div>
                 </div><!--rubric build-->
 
         <div style="text-align:left"><a href="#" data-transition="slide" data-rel="back" data-role="button" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a></div>
