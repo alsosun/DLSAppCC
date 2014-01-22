@@ -376,7 +376,7 @@ $(document).ready(function () {
         var i = $("#rubric table").size() + 1;
         var code = "custom " + i
         var out = $("#outcome").val();
-        var txt = "<table id='band" + i + "' class='rubrictable' style='width:100%'><tr><th style='width:5%'>ID</th><th style='width:45%'>Outcome</th>\
+        var txt = "<table id='band" + i + "' class='rubrictable' border='1' style='width:100%'><tr><th style='width:5%'>ID</th><th style='width:45%'>Outcome</th>\
                         <th style='width:10%'>Level 1</th><th style='width:10%'>Level 2</th><th style='width:20%'>Level 3</th>\
                         <th style='width:10%'>Level 4</th></tr><tr><td>" + code + "</td><td>" + out + "</td><td>Beginning</td>\
                         <td>Progressing</td><td>Meeting</td><td>Established</td></tr></table>";
