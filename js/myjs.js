@@ -5,6 +5,16 @@ $(document).ready(function () {
     var gr;
     var areasel;
     var str;
+    emailchk()
+    function emailchk() {
+
+        if (localStorage.getItem('email') == null) {
+            return false;
+        };
+        var current = localStorage.getItem('email')
+        $("#email").val(current);
+        $("#email1").val(current);
+    };
     //news feed
     $('#divRss').FeedEk({
         FeedUrl: 'http://dailyrubic.blogspot.com/feeds/posts/default',
@@ -494,6 +504,9 @@ $(document).ready(function () {
         e.preventDefault();
         var exrubric = $('#rubric').html();
         var exrubricname = $('#rubriclabel').html();
+        var currentemail = $("#email").val()
+        localStorage.setItem('email', currentemail)
+
         $('#rubricname').val(exrubricname);
         $('#hiddenrubric').val(exrubric);
         $("#rubricform").submit();
@@ -716,6 +729,7 @@ $(document).ready(function () {
         $("#reportlabel").html("")
         $("#assessmentinput").hide();
         $("#report-con").hide();
+        $("#reportexcon").hide()
     });
     //loadclasses show
     $("#loadassesslink").on("click", function (event) {
@@ -727,6 +741,7 @@ $(document).ready(function () {
         $("#reportlabel").html("")
         $("#assessmentinput").hide();
         $("#report-con").hide();
+        $("#reportexcon").hide()
     });
     //del assessment
     $("#delassesslink").on("click", function (event) {
@@ -738,6 +753,7 @@ $(document).ready(function () {
         $("#reportlabel").html("")
         $("#assessmentinput").hide();
         $("#report-con").hide();
+        $("#reportexcon").hide()
     });
     //load rubrics, classes
     $("#assess").on("pageshow", function () {
@@ -888,7 +904,8 @@ $(document).ready(function () {
 
         rep = rep + "</tr></thead><tbody></tbody></table>"
         var lable = $("#reportlabel").html()
-        $("#report").append(lable).trigger("create")
+        $("#reporttop").html(lable);
+
         $("#report").append(rep).trigger("create")
     }
     //add student data
@@ -965,12 +982,29 @@ $(document).ready(function () {
         return false;
     }
     $("#exportdataBtn").on("click", function () {
-        var body = $('#report').table2CSV({ delivery: 'value' });
-        body = encodeURIComponent(body)
-        var subject = "Daily Rubric Report: " + $("#reportlabel").html();        
-        window.location = "mailto:?subject=" + subject + "&body=" + body;      
+        //var body = $('#report').table2CSV({ delivery: 'value' });
+        //body = encodeURIComponent(body)
+        //var subject = "Daily Rubric Report: " + $("#reportlabel").html();        
+        //window.location = "mailto:?subject=" + subject + "&body=" + body;
+        $("#reportexcon").show()
     });
-    
+    //export assessment table
+    $("#exportreportBtn").on('click', function (e) {
+        if ($("#email1").val == "") {
+            $("#assessmessage").html("need to enter an email address");
+            $("#assesspop").popup("open");
+            return false;
+        };
+        e.preventDefault();
+        var exreport = $('#report').html();
+        var exreportname = $('#reportlabel').html();
+        var currentemail = $("#email1").val()
+        localStorage.setItem('email', currentemail)
+
+        $('#reportname').val(exreportname);
+        $('#reporttable').val(exreport);
+        $("#reportform").submit();
+    });
     //tabletools for web version
     //function dataTablecall() {
     //    $('#reporttry table').dataTable({

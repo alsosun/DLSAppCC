@@ -36,10 +36,15 @@
         <div class="container" style="padding: 0px; text-align:center">
 			<div><img src="assests/images/logodls.png" /></div>
         <div style="padding:10px 10px;" >
-            <button id="guestBtn" data-theme="b" data-icon="check" data-transition="slide">Get Started</button>          
-        </div>           
-            <div>
-                <p>News: If you also have Unit & Rubric Planner for PC, you will soon be able to link your rubrics to Daily Rubric--stay tuned!</p>
+            <button id="guestBtn" data-theme="b" data-icon="check" data-transition="slide" data-inline="true" >Tips for Getting Started</button>          
+        </div>  
+            <!--<div id="saveemail">
+                <h2>Export Settings:</h2>
+                <h2 id="currentemail">No email address registered</h2>
+                <a href="#emailpop" data-rel="popup" id="emailchBtn" data-role="button" data-theme="b" data-icon="mail" data-inline="true">change email</a>
+            </div>         
+            <div>-->
+                
                 <!--<form id="login">
                     <div style="padding:10px 10px; ">
                         <h3>DLS user can sign in</h3>
@@ -81,6 +86,18 @@
             <p>To learn more about Unit and Planner, <a href="#" class="extlk">visit us online.</a></p>           
         </div>
 	</div><!-- /panel -->
+    <div data-role="popup" id="emailpop" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;" class="ui-corner-all">
+                <div data-role="header" data-theme="a" class="ui-corner-top">  
+                <h1>Export Settings</h1>
+                </div>
+                <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content" style="text-align:center">
+                <div id="Div4">
+                    <label for="svemail">Enter an email address for exporting rubrics and reports</label>
+                    <input type="email" data-clear-btn="true" name="svemail" id="svemail" value="" placeholder="my@email.com">
+                    <a href="#" id="emailsvBtn" data-role="button" data-inline="true" data-rel="back" data-theme="c">OK</a>
+                </div>                     
+                </div> 
+            </div>	<!-- error pop --> 
 </div><!-- /log in page -->
 <div data-role="page" class="jqm-demos ui-responsive-panel" id="rubrics" data-title="Rubrics"><!-- rubrics page -->
     <div data-role="header">
@@ -223,15 +240,15 @@
                         <a href="#" id="addmoreBtn" data-role="button" data-icon="plus" data-theme="c" data-inline="true">More outcomes</a>
                         <a href="#" id="clearBtn" data-role="button" data-icon="refresh" data-theme="c" data-inline="true">Start Over</a>
                         <a href="#" id="saveBtn" data-role="button" data-icon="check" data-theme="c" data-inline="true">Done</a>
-                        <a href="#" id="openexport" data-role="button" data-icon="check" data-theme="c" data-inline="true">Export</a>
+                        <a href="#" id="openexport" data-role="button" data-icon="mail" data-theme="c" data-inline="true">Export</a>
                     </div>
                 <div id="exportcon" hidden="hidden">
-                    <form action="http://www.digitallearnersolutions.com/dailyrubric/export.php" method="post" id="rubricform" target="_blank">
+                    <form action="http://www.digitallearnersolutions.com/dailyrubric/export.php" method="post" id="rubricform" target="_system">
                              <label for="email">enter your email</label>
                              <input type="text" name="email" id="email"/>
                              <div hidden="hidden"><textarea name="rubricname" id="rubricname" ></textarea></div>
                              <div hidden="hidden"><textarea name="hiddenrubric" id="hiddenrubric" ></textarea></div>
-                             <div><button id="exportBtn">export</button></div>
+                             <div><button id="exportBtn" data-icon="mail">send</button></div>
                     </form>
                 </div>
                 </div><!--rubric build-->
@@ -513,16 +530,22 @@
             </div>
             <div id="report-con" hidden="hidden">
                 <a href="#" id="adddataBtn" data-role="button" data-inline="true" data-icon="plus" data-theme="c">Add result</a>
-                
+                <h2 id="reporttop"></h2>
                 <div id="report">
 
                 </div>
                 <div>
                     <a href="#" id="donedataBtn" data-role="button" data-inline="true" data-icon="check" data-theme="c">done</a>
-                    <a href="#" id="exportdataBtn" data-role="button" data-inline="true" data-icon="action" data-theme="c">export / send</a>
+                    <a href="#" id="exportdataBtn" data-role="button" data-inline="true" data-icon="mail" data-theme="c">export / send</a>
                 </div>
-                <div id="reporttry">
-
+                <div id="reportexcon" hidden="hidden">
+                    <form action="http://www.digitallearnersolutions.com/dailyrubric/export.php" method="post" id="reportform" target="_system">
+                             <label for="email">enter your email</label>
+                             <input type="text" name="email" id="email1"/>
+                             <div hidden="hidden"><textarea name="rubricname" id="reportname" ></textarea></div>
+                             <div hidden="hidden"><textarea name="hiddenrubric" id="reporttable" ></textarea></div>
+                             <div><button id="exportreportBtn" data-icon="mail">send</button></div>
+                    </form>               
                 </div>
             </div>
         </div>
