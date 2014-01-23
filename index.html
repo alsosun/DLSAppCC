@@ -7,8 +7,7 @@
 	<link rel="shortcut icon" href="favicon.ico">
 	<!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />-->
 	<!--<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
-	<!--<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>-->   
-    
+	<!--<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>-->     
 	<link rel="stylesheet" type="text/css" href="css/themes/default/jquery.mobile-1.4.0.min.css" />
     <link rel="stylesheet" type="text/css" href="css/themes/default/my.css" />  
     <link rel="stylesheet" type="text/css" href="css/themes/default/GreenDLS.min.css" />
@@ -541,19 +540,32 @@
                 </div>
                 <div id="reportexcon" hidden="hidden">
                     <form action="http://www.digitallearnersolutions.com/dailyrubric/export.php" method="post" id="reportform" target="_system">
-                             <label for="email">enter your email</label>
-                             <input type="text" name="email" id="email1"/>
-                             <div hidden="hidden"><textarea name="rubricname" id="reportname" ></textarea></div>
-                             <div hidden="hidden"><textarea name="hiddenrubric" id="reporttable" ></textarea></div>
-                             <div><button id="exportreportBtn" data-icon="mail">send</button></div>
-                    </form>               
+                        <label for="email">enter your email</label>
+                        <input type="text" name="email" id="email1" />
+                        <div hidden="hidden">
+                            <textarea name="rubricname" id="reportname"></textarea>
+                        </div>
+                        <div hidden="hidden">
+                            <textarea name="hiddenrubric" id="reporttable"></textarea></div>
+                        <div>
+                            <button id="exportreportBtn" data-icon="mail">send</button></div>
+                    </form>
                 </div>
             </div>
         </div>
                      
 	</div><!-- /content -->
-    <div data-role="footer">
+    <div data-role="footer" data-position="fixed">
 		<h6 class="footer-text">DLS Copyright 2013. All rights reserved</h6>
+        <!--<div data-role="navbar">
+            <ul>
+              <li><a href="#" data-icon="plus">New</a></li>
+              <li><a href="#" data-icon="edit">load</a></li>
+              <li><a href="#" data-icon="delete">Delete</a></li>
+               <li><a href="#" data-icon="comment">Notes</a></li>
+              <li><a href="#" data-icon="camera">&nbsp;</a></li>
+            </ul>
+        </div><!-- /navbar -->      
 	</div><!-- /footer -->
     <div data-role="popup" id="assesspopup" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;" class="ui-corner-all">
                 <div data-role="header" data-theme="a" class="ui-corner-top">
