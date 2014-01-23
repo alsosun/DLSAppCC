@@ -42,10 +42,10 @@
                 <h2>Export Settings:</h2>
                 <h2 id="currentemail">No email address registered</h2>
                 <a href="#emailpop" data-rel="popup" id="emailchBtn" data-role="button" data-theme="b" data-icon="mail" data-inline="true">change email</a>
-            </div>         
-            <div>-->
+            </div>-->         
+            <!--<div>
                 
-                <!--<form id="login">
+                <form id="login">
                     <div style="padding:10px 10px; ">
                         <h3>DLS user can sign in</h3>
                         <label for="un" class="ui-hidden-accessible">Username:</label>
@@ -54,8 +54,8 @@
                         <input type="password" name="pass" id="pw" value="" placeholder="password" data-theme="a">
                         <button type="submit" data-theme="b" data-icon="check" >Sign in</button>
                     </div>
-                </form>-->
-            </div>		
+                </form>
+            </div>-->		
         </div>
                       
 	</div><!-- /content -->
@@ -244,7 +244,8 @@
                     </div>
                 <div id="exportcon" hidden="hidden">
                     <form action="http://www.digitallearnersolutions.com/dailyrubric/export.php" method="post" id="rubricform" target="_system">
-                             <label for="email">enter your email</label>
+                        <img src="css/themes/default/images/ajax-loader.gif" id="loader" hidden="hidden" />     
+                        <label for="email">enter your email</label>
                              <input type="text" name="email" id="email"/>
                              <div hidden="hidden"><textarea name="rubricname" id="rubricname" ></textarea></div>
                              <div hidden="hidden"><textarea name="hiddenrubric" id="hiddenrubric" ></textarea></div>

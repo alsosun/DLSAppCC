@@ -510,6 +510,8 @@ $(document).ready(function () {
         $('#rubricname').val(exrubricname);
         $('#hiddenrubric').val(exrubric);
         $("#rubricform").submit();
+        $('#loader').show();
+        return true;
     });
     //end of rubrics
     //classes page
