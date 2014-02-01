@@ -800,7 +800,7 @@ $(document).ready(function () {
             event.preventDefault();
             return false;
         };
-        onClassAssSelect();
+        //onClassAssSelect();
     });
     function onClassAssSelect() {
         $("#assess-st-select").find("option").remove().end();
