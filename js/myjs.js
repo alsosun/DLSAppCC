@@ -16,6 +16,7 @@ $(document).ready(function () {
         $("#email1").val(current);
     };
     //news feed
+    $("#news").on("pageshow", function () {
     $('#divRss').FeedEk({
         FeedUrl: 'http://dailyrubic.blogspot.com/feeds/posts/default',
         MaxCount: 5,
@@ -23,6 +24,7 @@ $(document).ready(function () {
         ShowPubDate: true,
         DescCharacterLimit: 100,
         TitleLinkTarget: '_blank'
+      });
     });
     //news feed links to external browser
     $("#divRss").on("click", "a", function (e) {
@@ -731,7 +733,7 @@ $(document).ready(function () {
         $("#reportlabel").html("")
         $("#assessmentinput").hide();
         $("#report-con").hide();
-        $("#reportexcon").hide()
+        $("#reportexcon").hide();
     });
     //loadclasses show
     $("#loadassesslink").on("click", function (event) {
@@ -875,6 +877,10 @@ $(document).ready(function () {
             localStorage.removeItem(selrep + "report");
             localStorage.removeItem(selrep + "rubric");
             localStorage.removeItem(selrep + "class");
+            for (i = 1; i < 36; i++) {
+                localStorage.removeItem(selrep + "note" + i)
+                localStorage.removeItem(selrep + "piclink" + i)
+            };
             onReportSelect();
         });
     $("#dialognoas").on("click", function () {
@@ -907,7 +913,6 @@ $(document).ready(function () {
         rep = rep + "</tr></thead><tbody></tbody></table>"
         var lable = $("#reportlabel").html()
         $("#reporttop").html(lable);
-
         $("#report").append(rep).trigger("create")
     }
     //add student data
@@ -1002,11 +1007,30 @@ $(document).ready(function () {
         var exreportname = $('#reportlabel').html();
         var currentemail = $("#email1").val()
         localStorage.setItem('email', currentemail)
-
+        var notes = exportNotes()
+        $('#hiddennotes').val(notes);
         $('#reportname').val(exreportname);
         $('#reporttable').val(exreport);
         $("#reportform").submit();
     });
+    function exportNotes() {
+        //loop through stds and get notes to a <p></p>
+        var currentassessment = localStorage.getItem("currentassess")
+        var txt = "<h2>Assessment Notes</h2>"
+        for (i = 1; i < 36; i++) {
+            var note = localStorage.getItem(currentassessment + "note" + i)
+            if (localStorage.getItem(currentassessment + "note" + i) !== null) {
+
+                note = localStorage.getItem(currentassessment + "note" + i)
+                var stname = $("#assess-st-select option[value='" + i + "']").text();
+                txt = txt + "<h3>" + stname + "</h3><p>" + note + "</p>"
+
+            };
+
+        }
+
+        return txt;
+    };
     //tabletools for web version
     //function dataTablecall() {
     //    $('#reporttry table').dataTable({
@@ -1093,22 +1117,49 @@ $(document).ready(function () {
             $("#popupVideo-2").html("<span></span>");
         }
     });
-    ////vid 3
-    //$("#popupVideo-3 iframe")
-    //    .attr("width", 0)
-    //    .attr("height", 0);
+    //camera and notes
+    function getImage() {
+        var stname = $("#assess-st-select option:selected").text();
+        var stvalue = $("#assess-st-select option:selected").val();
+        var currentassessment = localStorage.getItem("currentassess")
+        //check if link to image exists and set up popup
+        var note = localStorage.getItem(currentassessment + "note" + stvalue)
+        var piclink = localStorage.getItem(currentassessment + "piclink" + stvalue)
+        $("#anecdote").val(note)
+        $("#stdimagename").html(stname)
+        var imageURI
+        if (piclink == null) {
+            imageURI = "assests/images/noimage.png"
+        } else {
+            imageURI = piclink
+        }
+        //$("#picpop").on("popupbeforeposition", function () {
+        var size = scale(497, 298, 15, 1),
+            w = size.width,
+             h = size.height,
+            markup = "<img src='" + imageURI + "' width='" + w + "' height='" + h + "' />";
 
-    //$("#popupVideo-3").on({
-    //    popupbeforeposition: function () {
-    //        var size = scale(497, 298, 15, 1),
-    //            w = size.width,
-    //            h = size.height,
-    //            markup = " <iframe src='http://www.youtube.com/embed/1cp2YgrU3ws?rel=0' width='" + w + "' height='" + h + "'  seamless></iframe>";
+        $("#pic").html(markup)
+        //});     
+    };
+    $("#picpopdone").on("click", function () {
+        var stvalue = $("#assess-st-select option:selected").val();
+        //check if link to image exists and set up popup
+        var note = $("#anecdote").val()
+        var currentassessment = localStorage.getItem("currentassess")
+        localStorage.setItem(currentassessment + "note" + stvalue, note)
+    })
+    $("#openpicpop").on("click", function () { openPicNote() })
+    $("#opennotepop").on("click", function () { openPicNote() })
 
-    //        $("#popupVideo-3").html(markup);
-    //    },
-    //    popupafterclose: function () {
-    //        $("#popupVideo-3").html("<span></span>");
-    //    }
-    //});
+    function openPicNote() {
+        getImage()
+        $(':mobile-pagecontainer').pagecontainer('change', '#picpop', {
+            transition: 'flip',
+            //changeHash: true,
+            //reverse: true,
+            //role: "dialog",
+            showLoadMsg: true
+        });
+    };
 });
