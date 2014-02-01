@@ -806,5 +806,22 @@
         </div>
 	</div><!-- /panel -->
 </div><!-- /news page -->
+     <div data-role="page" id="picpop" class="jqm-demos ui-responsive-panel"> <!--picpop">-->
+                <div data-role="header" data-theme="a" class="ui-corner-top">  
+                <h1 id="stdimagename">Image</h1>
+                </div>            
+                <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content" style="text-align:center">               
+                <div id="pic">
+                    
+                </div>
+                    <img style="display:none;width:60px;height:60px;" id="LargeImage" src="" />
+                <div>
+                    <button id="openphoto" onclick="getPhoto(pictureSource.PHOTOLIBRARY);" data-inline="true" data-icon="camera" >change picture</button>
+                    <p>Assessment notes:</p>
+                    <textarea id="anecdote" placeholder="Enter notes here"></textarea>
+                </div>       
+                <a data-transition="flip" id="picpopdone" data-role="button" data-inline="true" data-rel="back" data-theme="c" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Done</a>
+                </div>
+     </div>	<!-- pop page -->
 </body>
 </html>
