@@ -1162,4 +1162,9 @@ $(document).ready(function () {
             showLoadMsg: true
         });
     };
+    $("#picpop").keydown(function (e) {
+        if (e.keyCode == 13) {
+            $("##picpopdone").click();
+        }
+    });
 });
