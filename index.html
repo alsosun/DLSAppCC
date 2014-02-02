@@ -59,7 +59,7 @@
         </div>
                       
 	</div><!-- /content -->
-    <div data-role="footer">
+    <div data-role="footer" data-position="fixed">
 		<h6 class="footer-text">DLS Copyright 2013. All rights reserved</h6>
 	</div><!-- /footer -->
 
@@ -93,6 +93,13 @@
         <h2>Rubrics</h2>
         <a href="#nav-rubric" data-icon="bars" data-iconpos="notext">Menu</a>
         <a href="#right-rubric" data-icon="info" data-iconpos="notext">Add</a>
+        <div data-role="navbar" >
+            <ul>
+                <li><a href="#" id="newrubriclink" data-icon="plus">New Rubric</a></li>
+                <li><a href="#" id="editrubriclink" data-icon="edit">Edit Rubric</a></li>
+                <li><a href="#" id="delrubriclink" data-icon="delete">Delete Rubric</a></li>
+            </ul>
+        </div><!-- /navbar -->
     </div><!-- /header -->
 
     <div role="main" class="ui-content jqm-content" style="text-align:center">
@@ -233,16 +240,10 @@
                 </div>
                 </div><!--rubric build-->
 
-        <div style="text-align:left"><a href="#" data-transition="slide" data-rel="back" data-role="button" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a></div>
+        
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed" >
-		<div data-role="navbar" >
-            <ul>
-                <li><a href="#" id="newrubriclink" data-icon="plus">New Rubric</a></li>
-                <li><a href="#" id="editrubriclink" data-icon="edit">Edit Rubric</a></li>
-                <li><a href="#" id="delrubriclink" data-icon="delete">Delete Rubric</a></li>
-            </ul>
-        </div><!-- /navbar -->
+		<a href="#" data-transition="slide" data-rel="back" data-role="button" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
 	</div><!-- /footer -->
             <div data-role="popup" id="errorpop" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;" class="ui-corner-all">
                 <div data-role="header" data-theme="a" class="ui-corner-top">  
@@ -302,6 +303,14 @@
         <h1>Manage Classes</h1>
         <a href="#nav-classes" data-icon="bars" data-iconpos="notext">Menu</a>
         <a href="#right-classes" data-icon="info" data-iconpos="notext">Add</a>
+        <div data-role="navbar" >
+            <ul>
+                <li><a href="#" id="addclasslink" data-icon="plus">New Class</a></li>
+                <li><a href="#" id="delclasslink" data-icon="delete">Delete Class</a></li>
+                <li><a href="#" id="addstlink" data-icon="user">Add Student</a></li>
+                <li><a href="#" id="delstlink" data-icon="delete" >Delete Student</a></li>
+            </ul>
+        </div><!-- /navbar -->
     </div><!-- /header -->
     <div role="main" class="ui-content jqm-content jqm-fullwidth">
         <div class="container" style="padding: 0px; text-align:center">
@@ -365,14 +374,7 @@
         </div>                   
 	</div><!-- /content -->
     <div data-role="footer" data-position="fixed" >
-		<div data-role="navbar" >
-            <ul>
-                <li><a href="#" id="addclasslink" data-icon="plus">New Class</a></li>
-                <li><a href="#" id="delclasslink" data-icon="delete">Delete Class</a></li>
-                <li><a href="#" id="addstlink" data-icon="user">Add Student</a></li>
-                <li><a href="#" id="delstlink" data-icon="delete" >Delete Student</a></li>
-            </ul>
-        </div><!-- /navbar -->
+		<a href="#" data-transition="slide" data-rel="back" data-role="button" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
 	</div><!-- /footer -->
     <div data-role="popup" id="errorpopcl" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;" class="ui-corner-all">
                 <div data-role="header" data-theme="a" class="ui-corner-top">
@@ -436,6 +438,13 @@
         <h1>Assessment</h1>
         <a href="#nav-assess" data-icon="bars" data-iconpos="notext">Menu</a>
         <a href="#right-assess" data-icon="info" data-iconpos="notext">Add</a>
+        <div data-role="navbar" >
+            <ul>
+                <li><a href="#" id="loadassesslink" data-icon="grid">Open</a></li>
+                <li><a href="#" id="newassesslink" data-icon="plus">New</a></li>
+                <li><a href="#" id="delassesslink" data-icon="delete">Delete</a></li>
+            </ul>
+        </div><!-- /navbar -->
     </div><!-- /header -->
     <div role="main" class="ui-content jqm-content jqm-fullwidth">
         <div class="container" style="padding: 0px; text-align:center">
@@ -500,6 +509,7 @@
                 </div>
                 <div id="reportexcon" hidden="hidden">
                     <form action="http://www.digitallearnersolutions.com/dailyrubric/export.php" method="post" id="reportform" target="_system">
+                        <img src="css/themes/default/images/ajax-loader.gif" id="loader2" hidden="hidden" />
                         <label for="email">enter your email</label>
                         <input type="text" name="email" id="email1" />
                         <div hidden="hidden">
@@ -518,13 +528,7 @@
                      
 	</div><!-- /content -->
     <div data-role="footer" data-position="fixed" >
-		<div data-role="navbar" >
-            <ul>
-                <li><a href="#" id="loadassesslink" data-icon="grid">Open</a></li>
-                <li><a href="#" id="newassesslink" data-icon="plus">New</a></li>
-                <li><a href="#" id="delassesslink" data-icon="delete">Delete</a></li>
-            </ul>
-        </div><!-- /navbar -->
+		<a href="#" data-transition="slide" data-rel="back" data-role="button" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
 	</div><!-- /footer -->
     <div data-role="popup" id="assesspopup" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;" class="ui-corner-all">
                 <div data-role="header" data-theme="a" class="ui-corner-top">
@@ -591,10 +595,10 @@
         <div data-role="popup" id="popupVideo-2" data-overlay-theme="b" data-theme="b" data-tolerance="15,15" class="ui-content video-popup">
 					<iframe width="266" height="200" src="http://www.youtube.com/embed/IUtff1owJZA?rel=0"></iframe>
 		</div>
-       <div style="text-align:left"><a href="#" data-transition="slide" data-rel="back" data-role="button" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a></div>              
+                     
 	</div><!-- /content -->
-    <div data-role="footer">
-		<h6 class="footer-text">DLS Copyright 2013. All rights reserved</h6>
+    <div data-role="footer" data-position="fixed" >
+		<a href="#" data-transition="slide" data-rel="back" data-role="button" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
 	</div><!-- /footer -->
                 
 	<div data-role="panel" data-display="overlay" data-theme="b" id="nav-home">                
@@ -671,10 +675,10 @@
 				<hr style="background: #bebebe; margin: 30px 0;">
             </div>
         </div>-->
-       <div style="text-align:left"><a href="#" data-transition="slide" data-rel="back" data-role="button" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a></div>              
+                     
 	</div><!-- /content -->
-    <div data-role="footer">
-		<h6 class="footer-text">DLS Copyright 2013. All rights reserved</h6>
+    <div data-role="footer" data-position="fixed" >
+		<a href="#" data-transition="slide" data-rel="back" data-role="button" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
 	</div><!-- /footer -->
 
 	<div data-role="panel" data-display="overlay" data-theme="b" id="nav-Tutorial">                
@@ -735,10 +739,10 @@
 				<hr style="background: #bebebe; margin: 30px 0;">
             </div>-->
         </div>
-       <div style="text-align:left"><a href="#" data-transition="slide" data-rel="back" data-role="button" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a></div>              
+                     
 	</div><!-- /content -->
-    <div data-role="footer">
-		<h6 class="footer-text">DLS Copyright 2013. All rights reserved</h6>
+    <div data-role="footer" data-position="fixed" >
+		<a href="#" data-transition="slide" data-rel="back" data-role="button" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
 	</div><!-- /footer -->
 	<div data-role="panel" data-display="overlay" data-theme="b" id="nav-plan">                
 		        <ul data-role="listview" data-inset="false" data-theme="b">
@@ -777,10 +781,10 @@
 
 	        </div>
         </div>
-       <div style="text-align:left"><a href="#" data-transition="slide" data-rel="back" data-role="button" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a></div>              
+                     
 	</div><!-- /content -->
-    <div data-role="footer">
-		<h6 class="footer-text">DLS Copyright 2013. All rights reserved</h6>
+    <div data-role="footer" data-position="fixed" >
+		<a href="#" data-transition="slide" data-rel="back" data-role="button" data-inline="true" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
 	</div><!-- /footer -->
 
 	<div data-role="panel" data-display="overlay" data-theme="b" id="nav-news">                

@@ -1012,6 +1012,7 @@ $(document).ready(function () {
         $('#reportname').val(exreportname);
         $('#reporttable').val(exreport);
         $("#reportform").submit();
+        $('#loader2').show()
     });
     function exportNotes() {
         //loop through stds and get notes to a <p></p>
