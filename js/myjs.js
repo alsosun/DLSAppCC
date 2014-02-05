@@ -1127,23 +1127,23 @@ $(document).ready(function () {
         var currentassessment = localStorage.getItem("currentassess")
         //check if link to image exists and set up popup
         var note = localStorage.getItem(currentassessment + "note" + stvalue)
-        var piclink = localStorage.getItem(currentassessment + "piclink" + stvalue)
+        //var piclink = localStorage.getItem(currentassessment + "piclink" + stvalue)
         $("#anecdote").val(note)
         $("#stdimagename").html(stname)
-        var imageURI
-        if (piclink == null) {
-            imageURI = "assests/images/noimage.png"
-        } else {
-            imageURI = piclink
-        }
-        //$("#picpop").on("popupbeforeposition", function () {
-        var size = scale(497, 298, 15, 1),
-            w = size.width,
-             h = size.height,
-            markup = "<img src='" + imageURI + "' width='" + w + "' height='" + h + "' />";
+        //var imageURI
+        //if (piclink == null) {
+        //    imageURI = "assests/images/noimage.png"
+        //} else {
+        //    imageURI = piclink
+        //}
+        
+        //var size = scale(497, 298, 15, 1),
+        //    w = size.width,
+        //     h = size.height,
+        //    markup = "<img src='" + imageURI + "' width='" + w + "' height='" + h + "' />";
 
-        $("#pic").html(markup)
-        //});     
+        //$("#pic").html(markup)
+           
     };
     $("#picpopdone").on("click", function () {
         var stvalue = $("#assess-st-select option:selected").val();
